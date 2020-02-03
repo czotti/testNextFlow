@@ -3,15 +3,14 @@
 cheers = Channel.from 'Bonjour', 'Ciao', 'Hello', 'Hola', 'Ola', 'Hallo', 'Konichiwa', 'Privet', 'Saluton'
 
 process sayHello {
-
-  cpus ${process.sayHello.cpus}
-
+  echo true 
+  
   input: 
     val x from cheers
   script:
     """
-    sleep 10
-    echo '$x mundo!'
+    sleep 2
+    echo '$x mundo! (with $task.cpus cpus)'
     """
 }
 
